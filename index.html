@@ -89,7 +89,9 @@
 
                 <div class="image-decoration"></div>
 
-                <img src="images/foto.jpg" alt="Foto Hildan">
+                <!-- Kalau file fotonya hilang / gagal load, otomatis ganti ke placeholder -->
+                <img src="images/profil.jpg" alt="Foto Hildan"
+                     onerror="this.onerror=null; this.src='images/placeholder.svg';">
 
             </div>
 
