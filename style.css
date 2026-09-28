@@ -1,0 +1,1139 @@
+/* =====================================================================
+   PORTFOLIO — Hildan Faris Kamaludin
+   style.css
+
+   SEMUA style ada di file ini, sudah dipisah per "container" (blok).
+   Cari blok yang kamu mau lewat daftar isi di bawah, atau Ctrl+F
+   nama section-nya.
+
+   ---------------------------------------------------------------------
+   DAFTAR ISI
+   ---------------------------------------------------------------------
+     00  PALET WARNA
+     01  RESET & BASE
+     02  NAVBAR ......... .navbar, .logo, nav, .talk-btn, .menu-btn
+     03  BUTTON ......... .buttons, .primary-btn, .secondary-btn
+     04  HERO / HOME .... .hero, .hero-content, h1, .greeting
+     05  SOCIAL ......... .socials
+     06  FOTO ......... .hero-image, .image-decoration
+     07  INFO SECTION ... .info-section, .info-card, .icon
+     08  SCROLL DOWN .... .scroll-down
+     09  SECTION BASE ... .section, .section-head, .section-title
+     10  ABOUT .......... .about-grid, .about-text, .about-card
+     11  PROJECTS ....... .project-grid, .project-card, .project-tags
+     12  SKILLS ......... .skills-grid, .skill-box, .skill-tags
+     13  CONTACT ........ .contact-grid, .contact-card
+     14  FOOTER ......... footer
+     15  RESPONSIVE — TABLET & MOBILE  (max-width: 900px)
+     16  RESPONSIVE — MOBILE SMALL    (max-width: 600px)
+   ===================================================================== */
+
+
+/* =====================================================================
+   00  PALET WARNA
+   ---------------------------------------------------------------------
+   Warna yang dipakai berulang di file ini:
+     - oranye  #ff7629  -> aksen utama, hover, link aktif, garis bawah navbar
+     - card    #121212  -> latar kartu & section
+     - card-2  #1c1c1c  -> latar tag skill / badge
+     - navbar  #111111  -> latar navbar
+     - body    #0d0d0d  -> latar halaman
+     - border  #292929  -> garis kartu
+     - teks    white / #bdbdbd / #aaa / #888 / #777 / #666
+   ===================================================================== */
+
+
+/* =====================================================================
+   01  RESET & BASE
+   ---------------------------------------------------------------------
+   Menghapus margin bawaan browser + mengatur font & warna dasar halaman.
+   ===================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0d0d0d;
+    color: white;
+}
+
+
+/* =====================================================================
+   02  NAVBAR
+   ---------------------------------------------------------------------
+   Bar atas yang nempel di atas layar (sticky).
+   Isi: logo, daftar link, tombol "Let's Talk", tombol hamburger.
+   ===================================================================== */
+
+.navbar {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: #111111;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+/* --- 02a. Logo "HF" --- */
+
+.logo {
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #ff7629;
+}
+
+
+/* --- 02b. Daftar link (Home / About / Projects / Skills / Contact) --- */
+
+nav {
+    display: flex;
+    gap: 45px;
+}
+
+nav a {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+/* .active dipakai oleh script.js saat linksection sedang dibuka */
+
+nav a:hover,
+nav a.active {
+    color: #ff7629;
+}
+
+
+/* --- 02c. Tombol "Let's Talk" di navbar --- */
+
+.talk-btn {
+    text-decoration: none;
+
+    background: #ff7629;
+    color: #111;
+
+    padding: 14px 28px;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.talk-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* --- 02d. Tombol hamburger (hanya muncul di layar kecil) --- */
+
+.menu-btn {
+    display: none;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 8px 0 8px 12px;
+}
+
+.menu-btn span {
+    display: block;
+
+    width: 26px;
+    height: 2px;
+
+    background: #bdbdbd;
+
+    border-radius: 2px;
+
+    transition: 0.3s;
+}
+
+/* .active dipakai script.js -> berubah jadi ikon "X" */
+
+.menu-btn.active span {
+    background: #ff7629;
+}
+
+.menu-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =====================================================================
+   03  BUTTON
+   ---------------------------------------------------------------------
+   Dua tombol besar di section Home: "See My Projects" & "Download CV".
+   ===================================================================== */
+
+.buttons {
+    display: flex;
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 16px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #ff7629;
+
+    color: #111;
+}
+
+.secondary-btn {
+    border: 1px solid #ff7629;
+
+    color: white;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =====================================================================
+   04  HERO / HOME
+   ---------------------------------------------------------------------
+   Bagian paling atas: teks di kiri, foto di kanan.
+   ===================================================================== */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 7%;
+
+    gap: 60px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* --- 04a. Lingkaran orange samar di sudut kiri atas --- */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: #ff7629;
+
+    opacity: 0.12;
+
+    border-radius: 50%;
+
+    top: -150px;
+    left: -100px;
+}
+
+
+/* --- 04b. Kolom teks (kiri) --- */
+
+.hero-content {
+    width: 55%;
+
+    z-index: 2;
+}
+
+.greeting {
+    font-size: 22px;
+
+    color: #aaa;
+
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: clamp(45px, 5vw, 75px);
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+h1 span {
+    display: block;
+
+    color: #ff7629;
+}
+
+.hero-content h2 {
+    font-size: 20px;
+
+    font-weight: 400;
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+.description {
+    max-width: 600px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #bdbdbd;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================================
+   05  SOCIAL
+   ---------------------------------------------------------------------
+   Link GitHub / LinkedIn / Instagram / Email di bawah tombol.
+   ===================================================================== */
+
+.socials {
+    display: flex;
+
+    gap: 25px;
+}
+
+.socials a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: #ff7629;
+}
+
+
+/* =====================================================================
+   06  FOTO
+   ---------------------------------------------------------------------
+   Kolom kanan: foto + lingkaran orange di belakang foto.
+   ===================================================================== */
+
+.hero-image {
+    width: 45%;
+
+    height: 500px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    position: relative;
+
+    z-index: 2;
+
+    filter: brightness(0.8);
+
+    border: 1px solid #292929;
+}
+
+
+/* --- 06a. Lingkaran orange di belakang foto --- */
+
+.image-decoration {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 70px solid #ff7629;
+
+    border-radius: 50%;
+
+    top: -50px;
+    right: -100px;
+
+    opacity: 0.3;
+}
+
+
+/* =====================================================================
+   07  INFO SECTION
+   ---------------------------------------------------------------------
+   Kotak 4 kolom di bawah Hero: Student / Focus / Always Learning / Goal.
+   ===================================================================== */
+
+.info-section {
+    margin: 0 5% 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    background: #121212;
+
+    border: 1px solid #292929;
+
+    border-radius: 20px;
+
+    padding: 35px 20px;
+}
+
+.info-card {
+    text-align: center;
+
+    padding: 15px;
+
+    border-right: 1px solid #333;
+}
+
+.info-card:last-child {
+    border-right: none;
+}
+
+.icon {
+    font-size: 30px;
+
+    margin-bottom: 12px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #888;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================================
+   08  SCROLL DOWN
+   ---------------------------------------------------------------------
+   Panah kecil di paling bawah Home.
+   ===================================================================== */
+
+.scroll-down {
+    text-align: center;
+
+    color: #777;
+
+    padding: 10px 0 40px;
+}
+
+.scroll-down span {
+    font-size: 30px;
+
+    color: #ff7629;
+}
+
+.scroll-down p {
+    font-size: 13px;
+}
+
+
+/* =====================================================================
+   09  SECTION BASE
+   ---------------------------------------------------------------------
+   Kerangka yang dipakai semua section (About, Projects, Skills, Contact):
+   jarak atas/bawah, garis pemisah, dan judul "01 / About" dll.
+   ===================================================================== */
+
+/* sama seperti .section, biar link "Home" juga nggak ketutup navbar */
+
+main {
+    scroll-margin-top: 90px;
+}
+
+.section {
+    padding: 90px 7%;
+
+    border-top: 1px solid #1c1c1c;
+
+    scroll-margin-top: 90px;
+}
+
+.section-head {
+    margin-bottom: 50px;
+}
+
+.section-label {
+    color: #ff7629;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(32px, 4vw, 48px);
+
+    font-weight: 800;
+}
+
+.section-title span {
+    color: #ff7629;
+}
+
+.section-desc {
+    color: #bdbdbd;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    max-width: 600px;
+
+    margin-top: 18px;
+}
+
+
+/* =====================================================================
+   10  ABOUT
+   ---------------------------------------------------------------------
+   Teks di kiri, tiga kartu kecil di kanan.
+   ===================================================================== */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1.2fr 1fr;
+
+    gap: 50px;
+
+    align-items: start;
+}
+
+.about-text p {
+    color: #bdbdbd;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.about-list {
+    list-style: none;
+
+    margin-top: 25px;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+.about-list li {
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    color: #bdbdbd;
+
+    font-size: 15px;
+}
+
+.about-list span {
+    color: #ff7629;
+}
+
+.about-cards {
+    display: grid;
+
+    gap: 15px;
+}
+
+.about-card {
+    background: #121212;
+
+    border: 1px solid #292929;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    border-color: #ff7629;
+
+    transform: translateY(-4px);
+}
+
+.about-card h3 {
+    font-size: 17px;
+
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================================
+   11  PROJECTS
+   ---------------------------------------------------------------------
+   Tiga kartu proyek. Ganti isi / link di dalam <article class="project-card">
+   ===================================================================== */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+    background: #121212;
+
+    border: 1px solid #292929;
+
+    border-radius: 20px;
+
+    padding: 30px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #ff7629;
+}
+
+.project-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 118, 41, 0.12);
+
+    border-radius: 14px;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+}
+
+.project-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #888;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+
+    flex: 1;
+}
+
+.project-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.project-tags span {
+    font-size: 12px;
+
+    color: #aaa;
+
+    background: #1c1c1c;
+
+    border: 1px solid #292929;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+}
+
+.project-link {
+    color: #ff7629;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    color: #ff9a5c;
+}
+
+
+/* =====================================================================
+   12  SKILLS
+   ---------------------------------------------------------------------
+   Empat kotak: Frontend / Sedang Dipelajari / Tools / Soft Skills.
+   Tambah skill cukup tambah <span> baru di dalam .skill-tags.
+   ===================================================================== */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.skill-box {
+    background: #121212;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    padding: 28px;
+}
+
+.skill-box h3 {
+    color: #ff7629;
+
+    font-size: 18px;
+
+    margin-bottom: 18px;
+}
+
+.skill-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.skill-tags span {
+    font-size: 13px;
+
+    color: #aaa;
+
+    background: #1c1c1c;
+
+    border: 1px solid #292929;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.skill-tags span:hover {
+    color: #ff7629;
+
+    border-color: #ff7629;
+}
+
+
+/* =====================================================================
+   13  CONTACT
+   ---------------------------------------------------------------------
+   Tiga kartu: Email / GitHub / LinkedIn.
+   Ganti href-nya di index.html (sekarang masih placeholder "#").
+   ===================================================================== */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.contact-card {
+    background: #121212;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    border-color: #ff7629;
+
+    transform: translateY(-4px);
+}
+
+.contact-card h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    color: #888;
+
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+
+/* =====================================================================
+   14  FOOTER
+   ---------------------------------------------------------------------
+   Teks copyright paling bawah halaman.
+   ===================================================================== */
+
+footer {
+    padding: 30px 7%;
+
+    border-top: 1px solid #1c1c1c;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================================
+   15  RESPONSIVE — TABLET & MOBILE  (max-width: 900px)
+   ---------------------------------------------------------------------
+   Yang berubah di blok ini:
+     - 02 NAVBAR  : nav jadi menu dropdown, tombol hamburger muncul
+     - 04 HERO    : kolom teks & foto jadi tersusun ke bawah
+     - 07 INFO    : 4 kolom jadi 2 kolom
+     - 09 SECTION : jarak & scroll-margin dikecilkan
+     - 10 ABOUT   : 2 kolom jadi 1 kolom
+     - 11 PROJECT : 3 kolom jadi 2 kolom
+     - 13 CONTACT : 3 kolom jadi 1 kolom
+   ===================================================================== */
+
+@media (max-width: 900px) {
+
+    /* --- 02 NAVBAR: menu dropdown --- */
+
+    .menu-btn {
+        display: flex;
+    }
+
+    nav {
+        position: fixed;
+
+        top: 90px;
+        left: 0;
+
+        width: 100%;
+
+        background: #111111;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 10px 5%;
+
+        border-bottom: 1px solid #292929;
+
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+
+        transform: translateY(-130%);
+
+        transition: transform 0.3s ease;
+    }
+
+    /* .open dipakai script.js saat hamburger diklik */
+
+    nav.open {
+        transform: translateY(0);
+    }
+
+    nav a {
+        padding: 15px 0;
+
+        border-bottom: 1px solid #222;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    .talk-btn {
+        padding: 12px 18px;
+    }
+
+
+    /* --- 04 HERO: foto turun ke bawah --- */
+
+    .hero {
+        flex-direction: column;
+
+        padding-top: 50px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+
+        max-width: 500px;
+
+        height: 400px;
+    }
+
+
+    /* --- 07 INFO SECTION: 4 kolom -> 2 kolom --- */
+
+    .info-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-card {
+        border-right: none;
+
+        border-bottom: 1px solid #333;
+    }
+
+    /* kolom kanan tetap ada garis pemisah */
+
+    .info-card:nth-child(2n) {
+        border-right: 1px solid #333;
+    }
+
+    /* dua kartu paling bawah tidak dikasih garis bawah */
+
+    .info-card:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+
+
+    /* --- 09 SECTION BASE --- */
+
+    main {
+        scroll-margin-top: 90px;
+    }
+
+    .section {
+        padding: 70px 6%;
+
+        scroll-margin-top: 90px;
+    }
+
+
+    /* --- 10 ABOUT: 2 kolom -> 1 kolom --- */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    /* --- 11 PROJECTS: 3 kolom -> 2 kolom --- */
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* --- 13 CONTACT: 3 kolom -> 1 kolom --- */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================================
+   16  RESPONSIVE — MOBILE SMALL  (max-width: 600px)
+   ---------------------------------------------------------------------
+   Yang berubah di blok ini:
+     - 02 NAVBAR : navbar lebih pendek, tombol "Let's Talk" disembunyikan
+     - 04 HERO   : judul & tombol dikecilkan, tombol jadi 1 kolom
+     - 07 INFO   : 2 kolom -> 1 kolom
+     - 11 PROJECT: 2 kolom -> 1 kolom
+     - 12 SKILLS : 2 kolom -> 1 kolom
+   ===================================================================== */
+
+@media (max-width: 600px) {
+
+    /* --- 02 NAVBAR --- */
+
+    .navbar {
+        height: 70px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .talk-btn {
+        display: none;
+    }
+
+    /* navbar lebih pendek, menu dropdown ikut naik */
+
+    nav {
+        top: 70px;
+    }
+
+
+    /* --- 04 HERO --- */
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .hero {
+        padding: 45px 6%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        text-align: center;
+    }
+
+    .hero-image {
+        height: 350px;
+    }
+
+
+    /* --- 07 INFO SECTION: 1 kolom --- */
+
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        border-right: none !important;
+    }
+
+    .info-card:last-child {
+        border-bottom: none;
+    }
+
+
+    /* --- 11 PROJECTS & 12 SKILLS: 1 kolom --- */
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --- 09 SECTION BASE: navbar lebih pendek --- */
+
+    main,
+    .section {
+        scroll-margin-top: 70px;
+    }
+
+}

@@ -1,0 +1,13 @@
+# File kosong namanya "images" (bukan folder) — sisa salah buat di awal.
+# Folder aslinya images/ yang dipakai index.html buat nyimpen foto.
+# Hapus file ini dari disk, lalu bikin folder images/ yang bener.
+/images
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
