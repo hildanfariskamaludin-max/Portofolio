@@ -17,15 +17,14 @@
      05  SOCIAL ......... .socials
      06  FOTO ......... .hero-image, .image-decoration
      07  INFO SECTION ... .info-section, .info-card, .icon
-     08  SCROLL DOWN .... .scroll-down
-     09  SECTION BASE ... .section, .section-head, .section-title
-     10  ABOUT .......... .about-grid, .about-text, .about-card
-     11  PROJECTS ....... .project-grid, .project-card, .project-tags
-     12  SKILLS ......... .skills-grid, .skill-box, .skill-tags
-     13  CONTACT ........ .contact-grid, .contact-card
-     14  FOOTER ......... footer
-     15  RESPONSIVE — TABLET & MOBILE  (max-width: 900px)
-     16  RESPONSIVE — MOBILE SMALL    (max-width: 600px)
+     08  SECTION BASE ... .section, .section-head, .section-title
+     09  ABOUT .......... .about-grid, .about-text, .about-card
+     10  PROJECTS ....... .project-grid, .project-card, .project-tags
+     11  SKILLS ......... .skills-grid, .skill-box, .skill-tags
+     12  CONTACT ........ .contact-grid, .contact-card
+     13  FOOTER ......... footer
+     14  RESPONSIVE — TABLET & MOBILE  (max-width: 900px)
+     15  RESPONSIVE — MOBILE SMALL    (max-width: 600px)
    ===================================================================== */
 
 
@@ -471,32 +470,7 @@ h1 span {
 
 
 /* =====================================================================
-   08  SCROLL DOWN
-   ---------------------------------------------------------------------
-   Panah kecil di paling bawah Home.
-   ===================================================================== */
-
-.scroll-down {
-    text-align: center;
-
-    color: #777;
-
-    padding: 10px 0 40px;
-}
-
-.scroll-down span {
-    font-size: 30px;
-
-    color: #ff7629;
-}
-
-.scroll-down p {
-    font-size: 13px;
-}
-
-
-/* =====================================================================
-   09  SECTION BASE
+   08  SECTION BASE
    ---------------------------------------------------------------------
    Kerangka yang dipakai semua section (About, Projects, Skills, Contact):
    jarak atas/bawah, garis pemisah, dan judul "01 / About" dll.
@@ -554,7 +528,7 @@ main {
 
 
 /* =====================================================================
-   10  ABOUT
+   09  ABOUT
    ---------------------------------------------------------------------
    Teks di kiri, tiga kartu kecil di kanan.
    ===================================================================== */
@@ -645,7 +619,7 @@ main {
 
 
 /* =====================================================================
-   11  PROJECTS
+   10  PROJECTS
    ---------------------------------------------------------------------
    Tiga kartu proyek. Ganti isi / link di dalam <article class="project-card">
    ===================================================================== */
@@ -758,7 +732,7 @@ main {
 
 
 /* =====================================================================
-   12  SKILLS
+   11  SKILLS
    ---------------------------------------------------------------------
    Empat kotak: Frontend / Sedang Dipelajari / Tools / Soft Skills.
    Tambah skill cukup tambah <span> baru di dalam .skill-tags.
@@ -822,7 +796,7 @@ main {
 
 
 /* =====================================================================
-   13  CONTACT
+   12  CONTACT
    ---------------------------------------------------------------------
    Tiga kartu: Email / GitHub / LinkedIn.
    Ganti href-nya di index.html (sekarang masih placeholder "#").
@@ -876,7 +850,7 @@ main {
 
 
 /* =====================================================================
-   14  FOOTER
+   13  FOOTER
    ---------------------------------------------------------------------
    Teks copyright paling bawah halaman.
    ===================================================================== */
@@ -895,16 +869,16 @@ footer {
 
 
 /* =====================================================================
-   15  RESPONSIVE — TABLET & MOBILE  (max-width: 900px)
+   14  RESPONSIVE — TABLET & MOBILE  (max-width: 900px)
    ---------------------------------------------------------------------
    Yang berubah di blok ini:
      - 02 NAVBAR  : nav jadi menu dropdown, tombol hamburger muncul
      - 04 HERO    : kolom teks & foto jadi tersusun ke bawah
      - 07 INFO    : 4 kolom jadi 2 kolom
-     - 09 SECTION : jarak & scroll-margin dikecilkan
-     - 10 ABOUT   : 2 kolom jadi 1 kolom
-     - 11 PROJECT : 3 kolom jadi 2 kolom
-     - 13 CONTACT : 3 kolom jadi 1 kolom
+     - 08 SECTION : jarak & scroll-margin dikecilkan
+     - 09 ABOUT   : 2 kolom jadi 1 kolom
+     - 10 PROJECT : 3 kolom jadi 2 kolom
+     - 12 CONTACT : 3 kolom jadi 1 kolom
    ===================================================================== */
 
 @media (max-width: 900px) {
@@ -1007,7 +981,7 @@ footer {
     }
 
 
-    /* --- 09 SECTION BASE --- */
+    /* --- 08 SECTION BASE --- */
 
     main {
         scroll-margin-top: 90px;
@@ -1020,7 +994,7 @@ footer {
     }
 
 
-    /* --- 10 ABOUT: 2 kolom -> 1 kolom --- */
+    /* --- 09 ABOUT: 2 kolom -> 1 kolom --- */
 
     .about-grid {
         grid-template-columns: 1fr;
@@ -1029,14 +1003,14 @@ footer {
     }
 
 
-    /* --- 11 PROJECTS: 3 kolom -> 2 kolom --- */
+    /* --- 10 PROJECTS: 3 kolom -> 2 kolom --- */
 
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* --- 13 CONTACT: 3 kolom -> 1 kolom --- */
+    /* --- 12 CONTACT: 3 kolom -> 1 kolom --- */
 
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1046,14 +1020,14 @@ footer {
 
 
 /* =====================================================================
-   16  RESPONSIVE — MOBILE SMALL  (max-width: 600px)
+   15  RESPONSIVE — MOBILE SMALL  (max-width: 600px)
    ---------------------------------------------------------------------
    Yang berubah di blok ini:
      - 02 NAVBAR : navbar lebih pendek, tombol "Let's Talk" disembunyikan
      - 04 HERO   : judul & tombol dikecilkan, tombol jadi 1 kolom
      - 07 INFO   : 2 kolom -> 1 kolom
-     - 11 PROJECT: 2 kolom -> 1 kolom
-     - 12 SKILLS : 2 kolom -> 1 kolom
+     - 10 PROJECT: 2 kolom -> 1 kolom
+     - 11 SKILLS : 2 kolom -> 1 kolom
    ===================================================================== */
 
 @media (max-width: 600px) {
@@ -1118,7 +1092,7 @@ footer {
     }
 
 
-    /* --- 11 PROJECTS & 12 SKILLS: 1 kolom --- */
+    /* --- 10 PROJECTS & 11 SKILLS: 1 kolom --- */
 
     .project-grid {
         grid-template-columns: 1fr;
@@ -1129,7 +1103,7 @@ footer {
     }
 
 
-    /* --- 09 SECTION BASE: navbar lebih pendek --- */
+    /* --- 08 SECTION BASE: navbar lebih pendek --- */
 
     main,
     .section {
